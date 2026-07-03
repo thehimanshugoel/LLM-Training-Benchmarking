@@ -42,7 +42,7 @@ def main():
         model=model,
         args=training_args,
         train_dataset=train_dataset,
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         data_collator=data_collator,
     )
 
@@ -53,7 +53,7 @@ def main():
     trainer.save_model(f"{OUTPUT_DIR}/final")
     tokenizer.save_pretrained(f"{OUTPUT_DIR}/final")
 
-    print("\n Training completed successfully!")
+    print("\nTraining completed successfully!")
     print(f"Model saved to: {OUTPUT_DIR}/final")
 
 
