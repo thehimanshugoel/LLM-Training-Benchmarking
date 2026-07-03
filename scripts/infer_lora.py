@@ -36,6 +36,8 @@ with torch.no_grad():
         **inputs,
         max_new_tokens=150,
         temperature=0.7,
+        top_p=0.9,
+        repetition_penalty=1.1,
         do_sample=True,
     )
 
