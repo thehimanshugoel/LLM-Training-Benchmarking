@@ -29,7 +29,8 @@ flowchart TD
     A[Raw Dataset] --> B[Dataset Preprocessing]
     B --> C[Tokenization]
     C --> D[Supervised Fine-Tuning]
-    D --> E[LoRA Fine-Tuning]
+    C --> E[LoRA Fine-Tuning]
+    D --> F[Inference]
     E --> F[Inference]
     F --> G[Evaluation]
     
