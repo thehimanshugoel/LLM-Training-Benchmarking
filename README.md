@@ -112,7 +112,7 @@ The framework automatically generates JSON and CSV evaluation reports, Markdown 
 
 ## Benchmark Results
 
-The following report was generated on **2026-07-04 22:22:57** for the **Qwen/Qwen2.5-0.5B** model fine-tuned using **LoRA** on the **Trendyol Cybersecurity** dataset (10 evaluation samples).
+The following benchmark result sample is for the **Qwen/Qwen2.5-0.5B** model fine-tuned using **LoRA** on the **Trendyol Cybersecurity** dataset (10 evaluation samples).
 
 ### Hardware & Generation Settings
 
@@ -131,7 +131,7 @@ The following report was generated on **2026-07-04 22:22:57** for the **Qwen/Qwe
 | Average Generated Tokens | 150.00 |
 | Tokens / Second | 10.5724 |
 
-![Performance Metrics](outputs/graphs/performance_metrics.png)
+![Performance Metrics](images/performance_metrics.png)
 
 ### Quality Metrics
 
@@ -142,7 +142,7 @@ The following report was generated on **2026-07-04 22:22:57** for the **Qwen/Qwe
 | ROUGE-L | 0.1433 |
 | BERTScore | 0.8401 |
 
-![Quality Metrics](outputs/graphs/quality_metrics.png)
+![Quality Metrics](images/quality_metrics.png)
 
 ### Example Evaluation
 
