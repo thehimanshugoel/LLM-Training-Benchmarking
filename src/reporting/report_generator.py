@@ -4,7 +4,7 @@ from pathlib import Path
 
 class ReportGenerator:
     """
-    Generates benchmark reports.
+    Generates benchmark reports in Markdown format.
     """
 
     def generate(
@@ -14,39 +14,93 @@ class ReportGenerator:
         dataset_name: str,
         num_samples: int,
         output_path: str,
+        hardware: dict,
+        generation: dict,
+        example: dict,
     ) -> None:
 
-        report = f"""LLM Benchmark Report
-====================
+        report = f"""# LLM Benchmark Report
 
-Generated
----------
+## Generated
+
 {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 
-Model
------
-{model_name}
+---
 
-Dataset
--------
-{dataset_name}
+# Model
 
-Samples Evaluated
------------------
-{num_samples}
+| Item | Value |
+|------|-------|
+| Base Model | {model_name} |
+| Fine-tuning | LoRA |
 
-Quality Metrics
----------------
-Exact Match                : {metrics["exact_match"]:.4f}
-BLEU                       : {metrics["bleu"]:.4f}
-ROUGE-L                    : {metrics["rougeL"]:.4f}
-BERTScore                  : {metrics["bertscore"]:.4f}
+---
 
-Performance Metrics
--------------------
-Average Latency (seconds)  : {metrics["average_latency_seconds"]:.4f}
-Average Generated Tokens   : {metrics["average_generated_tokens"]:.2f}
-Tokens / Second            : {metrics["tokens_per_second"]:.4f}
+# Dataset
+
+| Item | Value |
+|------|-------|
+| Dataset | {dataset_name} |
+| Evaluation Samples | {num_samples} |
+
+---
+
+# Hardware
+
+| Component | Specification |
+|----------|---------------|
+| CPU | {hardware["cpu"]} |
+| CPU Cores | {hardware["cores"]} |
+| RAM | {hardware["ram"]} |
+| GPU | {hardware["gpu"]} |
+| Operating System | {hardware["os"]} |
+
+---
+
+# Generation Settings
+
+| Setting | Value |
+|---------|------:|
+| Max New Tokens | {generation["max_new_tokens"]} |
+| Sampling | {generation["sampling"]} |
+| Temperature | {generation["temperature"]} |
+
+---
+
+# Quality Metrics
+
+| Metric | Value |
+|--------|------:|
+| Exact Match | {metrics["exact_match"]:.4f} |
+| BLEU | {metrics["bleu"]:.4f} |
+| ROUGE-L | {metrics["rougeL"]:.4f} |
+| BERTScore | {metrics["bertscore"]:.4f} |
+
+---
+
+# Performance Metrics
+
+| Metric | Value |
+|--------|------:|
+| Average Latency (seconds) | {metrics["average_latency_seconds"]:.4f} |
+| Average Generated Tokens | {metrics["average_generated_tokens"]:.2f} |
+| Tokens / Second | {metrics["tokens_per_second"]:.4f} |
+
+---
+
+# Example
+
+## Prompt
+
+{example["prompt"]}
+
+## Reference
+
+{example["reference"]}
+
+## Model Output
+
+{example["prediction"]}
 """
 
         output_path = Path(output_path)
