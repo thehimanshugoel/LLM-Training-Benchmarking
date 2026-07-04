@@ -24,35 +24,21 @@ The project emphasizes modular design, reproducibility, and maintainability, mak
 
 ### High-Level Architecture
 
-```mermaid
-flowchart TD
-    A[Raw Dataset] --> B[Dataset Preprocessing]
-    B --> C[Tokenization]
-    
-    C --> D[Supervised Fine-Tuning]
-    C --> E[LoRA Fine-Tuning]
-    
-    D --> F[Inference Engine]
-    E --> F[Inference Engine]
-    
-    F --> G[Evaluation Metrics]
-    F --> L[Performance Benchmarking]
-    
-    G --> H[Exact Match]
-    G --> I[BLEU]
-    G --> J[ROUGE-L]
-    G --> K[BERTScore]
-    
-    L --> M[Latency]
-    L --> N[Tokens / Second]
-    L --> O[Generated Tokens]
-    
-    H & I & J & K & M & N & O --> P[Report Generation]
-    P --> Q[JSON / CSV Reports]
-    P --> R[Markdown Report]
-    
-    H & I & J & K & M & N & O --> S[Graph Visualization]
-```
+The framework is organized into a streamlined pipeline, with branching options for the fine-tuning strategy:
+
+1. **Data Preparation**
+   - **Raw Dataset** ➔ **Dataset Preprocessing** ➔ **Tokenization**
+2. **Model Training** *(Choose One)*
+   - **Option A:** Supervised Fine-Tuning (Full weight update)
+   - **Option B:** LoRA Fine-Tuning (Parameter-efficient adapter)
+3. **Inference & Benchmarking**
+   - **Inference Engine:** Generates predictions on the test set.
+   - **Performance Benchmarking:** Simultaneously records Latency, Tokens / Second, and Generated Tokens.
+4. **Evaluation**
+   - Computes **Quality Metrics:** Exact Match, BLEU, ROUGE-L, and BERTScore based on the predictions.
+5. **Reporting**
+   - **Report Generation:** Outputs JSON/CSV metrics and a comprehensive Markdown report.
+   - **Graph Visualization:** Plots the benchmark metrics into graphs.
 
 
 
